@@ -5,6 +5,7 @@
 
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """Place Class that inherits from BaseModel"""
     name = ""
