@@ -45,7 +45,7 @@ class FileStorage:
         dictionary = {'BaseModel': BaseModel, 'City': City, 'Amenity': Amenity,
                       'Place': Place, 'Review': Review, 'State': State}
 
-            if os.path.exists(FileStorage.__file_path):
+        if os.path.exists(FileStorage.__file_path):
                 with open(FileStorage.__file_path, 'r') as f:
                     for key, value in json.load(f).items():
                         self.new(dictionary[value['__class__']](**value))
