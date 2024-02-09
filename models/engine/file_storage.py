@@ -17,7 +17,7 @@ class FileStorage:
     def all(self):
         """method to return dictionary"""
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """method to set object"""
         key = obj.__class__.__name__ + "." + obj.id
@@ -34,17 +34,18 @@ class FileStorage:
             json.dump(instances, f)
 
     def reload(self):
-            """Deserializes a JSON file to an object"""
-            from models.base_model import BaseModel
-            from models.amenity import Amenity
-            from models.city import City
-            from models.place import Place
-            from models.review import Review
-            from models.state import State
-            dictionary = {'BaseModel': BaseModel, 'City': City, 'Amenity': Amenity,
-                          'Place': Place, 'Review': Review, 'State': State}
+        """Deserializes a JSON file to an object"""
+        from models.base_model import BaseModel
+        from models.amenity import Amenity
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.state import State
+
+        dictionary = {'BaseModel': BaseModel, 'City': City, 'Amenity': Amenity,
+                      'Place': Place, 'Review': Review, 'State': State}
 
             if os.path.exists(FileStorage.__file_path):
                 with open(FileStorage.__file_path, 'r') as f:
                     for key, value in json.load(f).items():
-                        self.new(dictionary[value['__class__']](**value))
+                        self.new(dictionary[value[__class__]](**value))
