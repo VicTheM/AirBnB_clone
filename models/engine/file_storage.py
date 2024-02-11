@@ -14,6 +14,8 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+    # This function might pose an error
+    # should it be class method or static method?
     def all(self):
         """method to return dictionary"""
         return FileStorage.__objects
