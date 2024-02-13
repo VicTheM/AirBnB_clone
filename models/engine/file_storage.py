@@ -46,7 +46,8 @@ class FileStorage:
         from models.user import User
 
         dictionary = {'BaseModel': BaseModel, 'City': City, 'Amenity': Amenity,
-                      'Place': Place, 'Review': Review, 'State': State, 'User': User}
+                      'Place': Place, 'Review': Review, 'State': State,
+                      'User': User}
 
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r') as f:
