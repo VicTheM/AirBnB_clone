@@ -99,5 +99,6 @@ class FileStorageTests(unittest.TestCase):
         for key in new:
             self.assertEqual(var1[key], new[key])
 
+
 if __name__ == '__main__':
     unittest.main()
