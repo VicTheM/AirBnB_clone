@@ -43,11 +43,12 @@ class FileStorage:
         from models.place import Place
         from models.review import Review
         from models.state import State
+        from models.user import User
 
         dictionary = {'BaseModel': BaseModel, 'City': City, 'Amenity': Amenity,
-                      'Place': Place, 'Review': Review, 'State': State}
+                      'Place': Place, 'Review': Review, 'State': State, 'User': User}
 
         if os.path.exists(FileStorage.__file_path):
-                with open(FileStorage.__file_path, 'r') as f:
-                    for key, value in json.load(f).items():
-                        self.new(dictionary[value['__class__']](**value))
+            with open(FileStorage.__file_path, 'r') as f:
+                for key, value in json.load(f).items():
+                    self.new(dictionary[value['__class__']](**value))
